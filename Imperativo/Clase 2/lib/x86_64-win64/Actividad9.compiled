@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Compiler Value="C:\fpc\3.2.2\bin\x86_64-win64\fpc.exe" Date="1482330472"/>
+  <Params Value=" -MObjFPC -Scghi -O1 -gw3 -gl -l -vewnhibq &quot;-FiC:\Users\pagan\OneDrive - Alumnos Facultad de Ingeniería - UNLP\Escritorio\Progra 2\Imperativo\Clase 2\lib\x86_64-win64&quot; &quot;-FuC:\Users\pagan\OneDrive - Alumnos Facultad de Ingeniería - UNLP\Escritorio\Progra 2\Imperativo\Clase 2\&quot; &quot;-FUC:\Users\pagan\OneDrive - Alumnos Facultad de Ingeniería - UNLP\Escritorio\Progra 2\Imperativo\Clase 2\lib\x86_64-win64\&quot; &quot;-FEC:\Users\pagan\OneDrive - Alumnos Facultad de Ingeniería - UNLP\Escritorio\Progra 2\Imperativo\Clase 2\&quot; &quot;-oC:\Users\pagan\OneDrive - Alumnos Facultad de Ingeniería - UNLP\Escritorio\Progra 2\Imperativo\Clase 2\Actividad9.exe&quot; Actividad9.lpr"/>
+</CONFIG>
