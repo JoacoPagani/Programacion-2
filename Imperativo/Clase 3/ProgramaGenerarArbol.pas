@@ -45,6 +45,25 @@ End;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {-----------------------------------------------------------------------------
 Insertar Arbol - Inserta un arbol en un arbol binario de busqueda}
 Procedure insertar(Var a: arbol; nro: integer);
@@ -62,6 +81,26 @@ Begin
   Else
     insertar(a^.HD, nro);
 End;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -86,29 +125,102 @@ End;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{-------------------------------------------------------------------------------
+AGREGARORDENADO - Agrega un elemento ordenado}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{Procedure agregarOrdenado(Var pri: Lista; nro: integer);
+
+Var 
+  nuevo, anterior, actual: Lista;
+Begin
+  new (nuevo);
+  nuevo^.dato := nro;
+  nuevo^.sig := Nil;
+  If (pri = Nil) Then
+    pri := nuevo
+  Else
+    Begin
+      actual := pri;
+      anterior := pri;
+      While (actual<>Nil) And (actual^.dato < nuevo^.dato) Do
+        Begin
+          anterior := actual;
+          actual := actual^.sig;
+        End;
+      If (anterior = actual) Then
+        pri := nuevo
+      Else
+        anterior^.sig := nuevo;
+      nuevo^.sig := actual;
+    End;
+End;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {-----------------------------------------------------------------------------
 CREARLISTA - Genera una lista con n�meros aleatorios }
 Procedure crearLista(Var l: Lista);
 
 Var 
+  aux: lista;
   n: integer;
 Begin
-  l := Nil;
-  n := random (20);
+  aux := Nil;
+  // Inicializar aux a nil
+  n := random(20);
   While (n <> 0) Do
     Begin
-      agregarAdelante(L, n);
-      n := random (20);
+      agregarAdelante(aux, n);
+
+      n := random(20);
     End;
+  l := aux;
 End;
 
-
-
-
-
-
-{-----------------------------------------------------------------------------
-IMPRIMIRLISTA - Muestra en pantalla la lista l }
 Procedure imprimirLista(l: Lista);
 Begin
   While (l <> Nil) Do
@@ -116,7 +228,23 @@ Begin
       write(l^.dato, ' - ');
       l := l^.sig;
     End;
+  writeln;
+  // Añadir una nueva línea al final de la impresión
 End;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -143,6 +271,8 @@ End;
 
 
 
+
+
 {-----------------------------------------------------------------------------
 AGREGARATRAS - Agrega un elemento atr�s en l}
 
@@ -158,6 +288,17 @@ Begin
   Else ult^.sig := nue;
   ult := nue;
 End;
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -197,9 +338,81 @@ Begin
     End;
 End;
 
+Procedure preOrden(a: arbol);
+Begin
+  If (a <> Nil) Then
+    Begin
+      writeln(a^.dato);
+      preOrden(a^.HI);
+      preOrden(a^.HD);
+    End;
+End;
+
+Procedure enOrden(a: arbol);
+Begin
+  If (a <> Nil) Then
+    Begin
+      enOrden(a^.HI);
+      writeln(a^.dato);
+      enOrden(a^.HD);
+    End;
+End;
+
+Procedure postOrden(a: arbol);
+Begin
+  If (a <> Nil) Then
+    Begin
+      postOrden(a^.HI);
+      postOrden(a^.HD);
+      writeln(a^.dato);
+    End;
+End;
+
+Function buscar(a: arbol; n: integer; Var encontrado: boolean): arbol;
+Begin
+  If (a <> Nil) Then
+    Begin
+      If (a^.dato = n) Then
+        encontrado := true
+      Else
+        Begin
+          buscar(a^.HI, n, encontrado);
+          If (encontrado = false) Then
+            buscar(a^.HD, n, encontrado);
+        End;
+    End;
+End;
+
+Function verMin(a: arbol): integer;
+Begin
+  If (a <> Nil) Then
+    Begin
+      If (a^.HI = Nil) Then
+        verMin := a^.dato
+      Else
+        verMin := verMin(a^.HI);
+    End
+  Else
+    verMin := -1;
+End;
+
+Function verMax(a: arbol): integer;
+Begin
+  If (a <> Nil) Then
+    Begin
+      If (a^.Hd = Nil) Then
+        verMax := a^.dato
+      Else
+        verMax := verMax(a^.Hd);
+      1
+    End;
+End;
+
 Var 
   l: lista;
   a: arbol;
+  n: integer;
+  encontrado: boolean;
 
 Begin
   Randomize;
@@ -217,6 +430,65 @@ Begin
 
   // Imprimir arbol por niveles
   imprimirpornivel(a);
+
+  writeln(
+
+
+
+
+       '-----------------------------------------------------------------------'
+  );
+  Writeln('Recorrido PreOrden ');
+  preOrden(a);
+
+  writeln(
+
+
+
+
+
+
+
+
+
+       '-----------------------------------------------------------------------'
+  );
+  Writeln('Recorrido enOrden ');
+  enOrden(a);
+
+  writeln(
+
+
+
+
+
+
+
+
+
+       '-----------------------------------------------------------------------'
+  );
+  Writeln('Recorrido PostOrden ');
+  postOrden(a);
+
+  writeln(
+
+
+
+       '-----------------------------------------------------------------------'
+  );
+  Writeln('Ingrese el numero a buscar: ');
+  Readln(n);
+  buscar(a, n, encontrado);
+  If (Not encontrado) Then
+    writeln('El numero no se encuentra en el arbol')
+  Else
+    writeln('El numero se encuentra en el arbol');
+
+  writeln('El minimo es: ', verMin(a));
+
+  writeln('El maximo es: ', verMax(a));
+
 
   readln;
 End.
