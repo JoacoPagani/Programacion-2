@@ -1,15 +1,17 @@
+
 Program arboles;
-Type
+
+Type 
 
   // Lista de enteros
   lista = ^nodoL;
-  nodoL = record
+  nodoL = Record
     dato: integer;
     sig: lista;
-  end;
+  End;
 
   // Arbol de enteros
-  arbol= ^nodoA;
+  arbol = ^nodoA;
   nodoA = Record
     dato: integer;
     HI: arbol;
@@ -18,121 +20,138 @@ Type
 
   // Lista de Arboles
   listaNivel = ^nodoN;
-  nodoN = record
+  nodoN = Record
     info: arbol;
     sig: listaNivel;
-  end;
+  End;
+
 
 
 {-----------------------------------------------------------------------------
 AgregarAdelante - Agrega nro adelante de l}
-procedure agregarAdelante(var l: Lista; nro: integer);
-var
+Procedure agregarAdelante(Var l: Lista; nro: integer);
+
+Var 
   aux: lista;
-begin
+Begin
   new(aux);
   aux^.dato := nro;
   aux^.sig := l;
-  l:= aux;
-end;
+  l := aux;
+End;
+
 
 
 
 {-----------------------------------------------------------------------------
-CREARLISTA - Genera una lista con números aleatorios }
-procedure crearLista(var l: Lista);
-var
+CREARLISTA - Genera una lista con nï¿½meros aleatorios }
+Procedure crearLista(Var l: Lista);
+
+Var 
   n: integer;
-begin
- l:= nil;
- n := random (20);
- While (n <> 0) do Begin
-   agregarAdelante(L, n);
-   n := random (20);
- End;
-end;
+Begin
+  l := Nil;
+  n := random (20);
+  While (n <> 0) Do
+    Begin
+      agregarAdelante(L, n);
+      n := random (20);
+    End;
+End;
+
 
 
 {-----------------------------------------------------------------------------
 IMPRIMIRLISTA - Muestra en pantalla la lista l }
-procedure imprimirLista(l: Lista);
-begin
- While (l <> nil) do begin
-   write(l^.dato, ' - ');
-   l:= l^.sig;
- End;
-end;
+Procedure imprimirLista(l: Lista);
+Begin
+  While (l <> Nil) Do
+    Begin
+      write(l^.dato, ' - ');
+      l := l^.sig;
+    End;
+End;
+
 
 {-----------------------------------------------------------------------------
 CONTARELEMENTOS - Devuelve la cantidad de elementos de una lista l }
 
-function ContarElementos (l: listaNivel): integer;
-  var c: integer;
-begin
- c:= 0;
- While (l <> nil) do begin
-   c:= c+1;
-   l:= l^.sig;
- End;
- contarElementos := c;
-end;
+Function ContarElementos (l: listaNivel): integer;
 
+Var c: integer;
+Begin
+  c := 0;
+  While (l <> Nil) Do
+    Begin
+      c := c+1;
+      l := l^.sig;
+    End;
+  contarElementos := c;
+End;
 
-{-----------------------------------------------------------------------------
-AGREGARATRAS - Agrega un elemento atrás en l}
-
-Procedure AgregarAtras (var l, ult: listaNivel; a:arbol);
- var nue:listaNivel;
-
- begin
- new (nue);
- nue^.info := a;
- nue^.sig := nil;
- if l= nil then l:= nue
-           else ult^.sig:= nue;
- ult:= nue;
- end;
 
 
 {-----------------------------------------------------------------------------
-IMPRIMIRPORNIVEL - Muestra los datos del árbol a por niveles }
+AGREGARATRAS - Agrega un elemento atrï¿½s en l}
+
+Procedure AgregarAtras (Var l, ult: listaNivel; a:arbol);
+
+Var nue: listaNivel;
+
+Begin
+  new (nue);
+  nue^.info := a;
+  nue^.sig := Nil;
+  If l= Nil Then l := nue
+  Else ult^.sig := nue;
+  ult := nue;
+End;
+
+
+
+{-----------------------------------------------------------------------------
+IMPRIMIRPORNIVEL - Muestra los datos del ï¿½rbol a por niveles }
 
 Procedure imprimirpornivel(a: arbol);
-var
-   l, aux, ult: listaNivel;
-   nivel, cant, i: integer;
-begin
-   l:= nil;
-   if(a <> nil)then begin
-                 nivel:= 0;
-                 agregarAtras (l,ult,a);
-                 while (l<> nil) do begin
-                    nivel := nivel + 1;
-                    cant:= contarElementos(l);
-                    write ('Nivel ', nivel, ': ');
-                    for i:= 1 to cant do begin
-                      write (l^.info^.dato, ' - ');
-                      if (l^.info^.HI <> nil) then agregarAtras (l,ult,l^.info^.HI);
-                      if (l^.info^.HD <> nil) then agregarAtras (l,ult,l^.info^.HD);
-                      aux:= l;
-                      l:= l^.sig;
-                      dispose (aux);
-                     end;
-                     writeln;
-                 end;
-               end;
-end;
 
-Var
+Var 
+  l, aux, ult: listaNivel;
+  nivel, cant, i: integer;
+Begin
+  l := Nil;
+  If (a <> Nil)Then
+    Begin
+      nivel := 0;
+      agregarAtras (l,ult,a);
+      While (l<> Nil) Do
+        Begin
+          nivel := nivel + 1;
+          cant := contarElementos(l);
+          write ('Nivel ', nivel, ': ');
+          For i:= 1 To cant Do
+            Begin
+              write (l^.info^.dato, ' - ');
+              If (l^.info^.HI <> Nil) Then agregarAtras (l,ult,l^.info^.HI);
+              If (l^.info^.HD <> Nil) Then agregarAtras (l,ult,l^.info^.HD);
+              aux := l;
+              l := l^.sig;
+              dispose (aux);
+            End;
+          writeln;
+        End;
+    End;
+End;
 
- l: lista;
+Var 
 
-begin
- Randomize;
+  l: lista;
 
- crearLista(l);
- writeln ('Lista generada: ');
- imprimirLista(l);
+Begin
+  Randomize;
 
- readln;
-end.
+  crearLista(l);
+  writeln ('Lista generada: ');
+  imprimirLista(l);
+
+  readln;
+End.

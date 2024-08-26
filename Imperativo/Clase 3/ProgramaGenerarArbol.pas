@@ -64,6 +64,7 @@ End;
 
 
 
+
 {-----------------------------------------------------------------------------
 Insertar Arbol - Inserta un arbol en un arbol binario de busqueda}
 Procedure insertar(Var a: arbol; nro: integer);
@@ -81,6 +82,7 @@ Begin
   Else
     insertar(a^.HD, nro);
 End;
+
 
 
 
@@ -139,8 +141,10 @@ End;
 
 
 
+
 {-------------------------------------------------------------------------------
 AGREGARORDENADO - Agrega un elemento ordenado}
+
 
 
 
@@ -183,6 +187,7 @@ Begin
     End;
 End;
 }
+
 
 
 
@@ -250,6 +255,7 @@ End;
 
 
 
+
 {-----------------------------------------------------------------------------
 CONTARELEMENTOS - Devuelve la cantidad de elementos de una lista l }
 
@@ -273,6 +279,7 @@ End;
 
 
 
+
 {-----------------------------------------------------------------------------
 AGREGARATRAS - Agrega un elemento atr�s en l}
 
@@ -288,6 +295,7 @@ Begin
   Else ult^.sig := nue;
   ult := nue;
 End;
+
 
 
 
@@ -383,6 +391,7 @@ Begin
     End;
 End;
 
+
 Function verMin(a: arbol): integer;
 Begin
   If (a <> Nil) Then
@@ -436,12 +445,14 @@ Begin
 
 
 
+
        '-----------------------------------------------------------------------'
   );
   Writeln('Recorrido PreOrden ');
   preOrden(a);
 
   writeln(
+
 
 
 
@@ -466,12 +477,14 @@ Begin
 
 
 
+
        '-----------------------------------------------------------------------'
   );
   Writeln('Recorrido PostOrden ');
   postOrden(a);
 
   writeln(
+
 
 
 
