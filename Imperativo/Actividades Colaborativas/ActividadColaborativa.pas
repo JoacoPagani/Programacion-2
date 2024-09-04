@@ -1,18 +1,5 @@
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 {Una empresa de micros de larga distancia gestiona sus ventas. Necesita almacenarla siguiente
 información para sus destinos de viaje: nombre del destino, distancia en kilómetros y la cantidad de pasajes vendidos para dicho destino.
 Dicha información se procesa hasta que se lee el destino “Fin”.
@@ -48,36 +35,7 @@ Type
   End;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   //el arbol es la estructura mas eficiente a la hora de realizar busquedas, el tiempo medio es O(log n)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 {-----------------------------------------------------------------------------
 Insertar Arbol - Inserta un arbol en un arbol binario de busqueda}
@@ -99,20 +57,6 @@ Begin
   Else
     writeln('El destino ya fue ingresado');
 End;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 {-------------------------------------------------------------------------------
