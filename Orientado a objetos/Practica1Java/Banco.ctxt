@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=Banco
+comment1.params=
+comment1.target=Banco()
+comment2.params=
+comment2.target=void\ procesarOperacion()
+comment3.params=
+comment3.target=void\ mostrarResultados()
+comment4.params=o
+comment4.target=void\ setOperacion(int)
+comment5.params=
+comment5.target=int[]\ getCantOp()
+comment6.params=
+comment6.target=int\ getTotalPersonas()
+comment7.params=
+comment7.target=int\ getOperacionMasSolicitada()
+numComments=8

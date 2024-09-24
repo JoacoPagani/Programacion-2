@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Promedio
+comment1.params=s\ n
+comment1.target=Promedio(double,\ int)
+comment2.params=
+comment2.target=double\ getResultado()
+numComments=3

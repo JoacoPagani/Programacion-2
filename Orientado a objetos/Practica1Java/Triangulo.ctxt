@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Triangulo
+comment1.params=a\ b\ c
+comment1.target=Triangulo(double,\ double,\ double)
+comment2.params=
+comment2.target=boolean\ esValido()
+comment3.params=
+comment3.target=double\ calcularPerimetro()
+numComments=4

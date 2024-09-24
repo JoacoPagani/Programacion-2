@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Restaurante
+comment1.params=
+comment1.target=Restaurante()
+comment2.params=i\ j\ c
+comment2.target=void\ setCalificacion(int,\ int,\ double)
+comment3.params=
+comment3.target=void\ calcularPromedio()
+comment4.params=a
+comment4.target=void\ mostrarResultado(int)
+numComments=5
