@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Decodificador
+comment1.params=dimF
+comment1.target=Decodificador(int)
+comment2.params=p\ i
+comment2.target=void\ setVectorPalabras(java.lang.String,\ int)
+comment3.params=
+comment3.target=java.lang.String\ obtenerMensajeEscondido()
+numComments=4

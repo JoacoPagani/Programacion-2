@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Main
+comment1.params=args
+comment1.target=void\ Main(java.lang.String[])
+comment2.params=dimF
+comment2.target=Partido[]\ cargarPartidos(int)
+comment3.params=Equipo\ v\ dimF
+comment3.target=int\ PartidosGanados(java.lang.String,\ Partido[],\ int)
+comment4.params=Equipo\ v\ dimF
+comment4.target=int\ cantidadGoles(java.lang.String,\ Partido[],\ int)
+comment5.params=v\ dimF
+comment5.target=double\ porcentajeEmpate(Partido[],\ int)
+numComments=6

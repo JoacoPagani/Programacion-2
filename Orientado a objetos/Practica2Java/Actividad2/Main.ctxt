@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Main
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=dimF
+comment2.target=Persona[]\ cargarPersonas(int)
+comment3.params=v\ dimF
+comment3.target=int\ contador65(Persona[],\ int)
+comment4.params=v\ dimF
+comment4.target=java.lang.String\ menorDni(Persona[],\ int)
+numComments=5
