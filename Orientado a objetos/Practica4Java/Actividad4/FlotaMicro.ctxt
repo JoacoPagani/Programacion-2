@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=FlotaMicro
+comment1.params=
+comment1.target=FlotaMicro()
+comment2.params=
+comment2.target=boolean\ estaCompleta()
+comment3.params=m
+comment3.target=boolean\ agregarMicro(micro)
+comment4.params=p
+comment4.target=boolean\ eliminarMicro(java.lang.String)
+comment5.params=p
+comment5.target=micro\ buscarMicroPorPatente(java.lang.String)
+comment6.params=d
+comment6.target=micro\ buscarMicroPorDestino(java.lang.String)
+numComments=7

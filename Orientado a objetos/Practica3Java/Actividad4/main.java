@@ -67,7 +67,7 @@ public class main {
             System.out.println("Ingrese DNI del siguiente jugador (0 para finalizar): ");
             dni = in.nextInt();
         }
-        return dimL;
+        return dimL; //
     }
     
     public static int contarJugadoresConMasDe100Partidos(Jugador[] v, int dimL) {
