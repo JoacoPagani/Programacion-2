@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=main
+comment1.params=
+comment1.target=void\ main()
+comment2.params=T\ N
+comment2.target=java.lang.String\ escribirVariable(java.lang.String,\ java.lang.String)
+comment3.params=T\ N
+comment3.target=java.lang.String\ escribirGetter(java.lang.String,\ java.lang.String)
+comment4.params=T\ N
+comment4.target=java.lang.String\ escribirSetter(java.lang.String,\ java.lang.String)
+numComments=5

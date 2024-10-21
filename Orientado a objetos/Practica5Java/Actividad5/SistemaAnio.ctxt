@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=SistemaAnio
+comment1.params=estacion\ anoInicio\ nAnios
+comment1.target=SistemaAnio(Estacion,\ int,\ int)
+comment2.params=
+comment2.target=java.lang.String\ reportarPromedio()
+numComments=3

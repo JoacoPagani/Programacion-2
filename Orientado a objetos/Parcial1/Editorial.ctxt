@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.target=Editorial
+comment1.params=
+comment1.target=Editorial()
+comment1.text=Constructores.
+comment2.params=nombre\ cantPremios\ libros
+comment2.target=Editorial(java.lang.String,\ int,\ Libro[])
+comment3.params=
+comment3.target=void\ cargarVector()
+comment4.params=
+comment4.target=java.lang.String\ getNombre()
+comment4.text=Getters.
+comment5.params=
+comment5.target=int\ getCantPremios()
+comment6.params=
+comment6.target=Libro[]\ getLibros()
+comment7.params=n
+comment7.target=void\ setNombre(java.lang.String)
+comment7.text=Setters.
+comment8.params=cp
+comment8.target=void\ setCantPremios(int)
+comment9.params=l
+comment9.target=void\ setLibros(Libro[])
+numComments=10

@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Entrenador
+comment1.params=
+comment1.target=Entrenador()
+comment2.params=trofeosGanados\ eDNI\ eEdad\ eSueldoBasico\ eNombre
+comment2.target=Entrenador(int,\ int,\ int,\ double,\ java.lang.String)
+comment3.params=
+comment3.target=double\ calcularSueldo()
+comment4.params=t
+comment4.target=void\ setTrofeosGanados(int)
+comment5.params=
+comment5.target=int\ getTrofeosGanados()
+numComments=6

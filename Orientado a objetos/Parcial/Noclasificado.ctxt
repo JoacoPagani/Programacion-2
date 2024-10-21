@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Noclasificado
+comment1.params=
+comment1.target=Noclasificado()
+comment2.params=Nombre\ Apellido\ Ranking
+comment2.target=Noclasificado(java.lang.String,\ java.lang.String,\ int)
+comment3.params=lugar\ pos
+comment3.target=void\ calcularPuntaje(java.lang.String,\ int)
+numComments=4

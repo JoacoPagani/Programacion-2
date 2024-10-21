@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=ProgramaArba
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=v\ DIMF
+comment2.target=void\ imprimirDatos(Vehiculo[],\ int)
+comment3.params=v\ dimF\ in
+comment3.target=void\ cargarVector(Vehiculo[],\ int,\ java.util.Scanner)
+comment4.params=in
+comment4.target=Propietario\ leerPropietario(java.util.Scanner)
+comment5.params=v\ i\ p\ in
+comment5.target=void\ cargarAutomotor(Vehiculo[],\ int,\ Propietario,\ java.util.Scanner)
+comment6.params=v\ i\ p\ in
+comment6.target=void\ cargarEmbarcacion(Vehiculo[],\ int,\ Propietario,\ java.util.Scanner)
+numComments=7

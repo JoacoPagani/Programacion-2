@@ -1,0 +1,27 @@
+#BlueJ class context
+comment0.target=Empleado
+comment1.params=
+comment1.target=Empleado()
+comment10.params=
+comment10.target=double\ getSueldoBasico()
+comment11.params=
+comment11.target=java.lang.String\ getNombre()
+comment12.params=
+comment12.target=java.lang.String\ toString()
+comment2.params=unDNI\ unaEdad\ unSueldoBasico\ unNombre
+comment2.target=Empleado(int,\ int,\ double,\ java.lang.String)
+comment3.params=
+comment3.target=double\ calcularSueldo()
+comment4.params=d
+comment4.target=void\ setDNI(int)
+comment5.params=e
+comment5.target=void\ setEdad(int)
+comment6.params=s
+comment6.target=void\ setDNI(double)
+comment7.params=n
+comment7.target=void\ setNombre(java.lang.String)
+comment8.params=
+comment8.target=int\ getDNI()
+comment9.params=
+comment9.target=int\ getEdad()
+numComments=13

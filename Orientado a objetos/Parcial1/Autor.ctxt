@@ -1,0 +1,26 @@
+#BlueJ class context
+comment0.target=Autor
+comment1.params=
+comment1.target=Autor()
+comment1.text=Constructores.
+comment10.params=Nacionalidad
+comment10.target=void\ setNacionalidad(java.lang.String)
+comment2.params=DNI\ Apellido\ Nombre\ Nacionalidad
+comment2.target=Autor(int,\ java.lang.String,\ java.lang.String,\ java.lang.String)
+comment3.params=
+comment3.target=int\ getDNI()
+comment3.text=Getters.
+comment4.params=
+comment4.target=java.lang.String\ getApellido()
+comment5.params=
+comment5.target=java.lang.String\ getNombre()
+comment6.params=
+comment6.target=java.lang.String\ getNacionalidad()
+comment7.params=DNI
+comment7.target=void\ setDNI(int)
+comment7.text=Setters.
+comment8.params=Apellido
+comment8.target=void\ setApellido(java.lang.String)
+comment9.params=Nombre
+comment9.target=void\ setNombre(java.lang.String)
+numComments=11

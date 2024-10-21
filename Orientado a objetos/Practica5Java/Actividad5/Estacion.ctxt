@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=Estacion
+comment1.params=
+comment1.target=Estacion()
+comment2.params=unNombre\ unaLatitud\ unaLongitud
+comment2.target=Estacion(java.lang.String,\ double,\ double)
+comment3.params=n
+comment3.target=void\ setNombre(java.lang.String)
+comment4.params=L
+comment4.target=void\ setLatitud(double)
+comment5.params=L
+comment5.target=void\ setLongitud(double)
+comment6.params=
+comment6.target=java.lang.String\ getNombre()
+comment7.params=
+comment7.target=double\ getLatitud()
+comment8.params=
+comment8.target=double\ getLongitud()
+comment9.params=
+comment9.target=java.lang.String\ toString()
+numComments=10
