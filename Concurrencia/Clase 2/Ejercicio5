@@ -1,0 +1,75 @@
+programa Ejercicio5
+procesos
+  proceso limpiarFlores(E esquinas: numero)  
+  variables
+    numAv:numero
+    numCa: numero
+  comenzar
+    numAv:= PosAv
+    numCa:= PosCa
+    derecha
+    repetir 5
+      Pos(numAv, numCa)
+      repetir (esquinas-1)
+        mover 
+        mientras (HayFlorEnLaEsquina)
+          tomarFlor
+      numCa:= numCa + 1
+    mientras HayFlorEnLaBolsa
+      depositarFlor
+  fin
+  proceso limpiarPapeles(E esquinas: numero)  
+  variables
+    numAv: numero
+    numCa: numero
+    aux: numero
+  comenzar
+    numAv:= PosAv
+    numCa:= PosCa
+    aux:= PosAv
+    repetir 5
+      Pos(numAv, numCa)
+      repetir (esquinas - 1)
+        mover 
+        mientras (HayPapelEnLaEsquina)
+          tomarPapel
+      numAv:= numAv + 1
+    Pos(aux,numCa)
+    mientras (HayPapelEnLaBolsa)
+      depositarPapel
+  fin
+areas
+  AreaR1: AreaP(1,75,15,80)
+  AreaR2: AreaP(75,80,80,100)
+  AreaR3: AreaP(70,10,100,15)
+  AreaR4: AreaP(10,1,15,10)
+robots
+  robot limpiaPapel
+  variables
+    esq1: numero
+  comenzar
+    Leer(esq1)
+    limpiarPapeles(esq1)
+  fin
+  robot limpiaFlor
+  variables
+    esq2: numero
+  comenzar
+    Leer(esq2)
+    limpiarFlores(esq2)
+  fin
+variables
+  robot1: limpiaFlor
+  robot2: limpiaPapel
+  robot3: limpiaFlor
+  robot4: limpiaPapel
+comenzar
+  AsignarArea(robot1, AreaR1)
+  AsignarArea(robot2, AreaR2)
+  AsignarArea(robot3, AreaR3)
+  AsignarArea(robot4, AreaR4) 
+  Iniciar(robot1, 1,75)
+  Iniciar(robot2,75,80)
+  Iniciar(robot3,70,10)
+  Iniciar(robot4,10,1)
+fin

@@ -1,0 +1,59 @@
+programa Ejercicio2
+procesos
+  proceso limpiarPerimetro(E lado: numero;ES flores: numero )
+  comenzar
+    repetir lado
+      mientras HayFlorEnLaEsquina
+        tomarFlor
+        flores:= flores + 1
+      mover
+    Informar(flores) 
+  fin
+areas
+  cuadrado: AreaC(10,10,30,30)
+robots
+  robot limpiador1
+  variables
+    flores: numero
+  comenzar
+    limpiarPerimetro(20,flores)
+  fin
+  robot limpiador2
+  variables
+    flores: numero
+  comenzar
+    derecha
+    limpiarPerimetro(20,flores)
+  fin
+  robot limpiador3
+  variables
+    flores: numero
+  comenzar
+    repetir 2
+      derecha
+    limpiarPerimetro(20,flores)
+  fin
+  robot limpiador4
+  variables
+    flores: numero
+  comenzar
+    repetir 3
+      derecha
+    limpiarPerimetro(20,flores)
+  fin
+  
+variables
+  robot1: limpiador1
+  robot2: limpiador2
+  robot3: limpiador3
+  robot4: limpiador4
+comenzar
+  AsignarArea(robot1, cuadrado)
+  AsignarArea(robot2, cuadrado)
+  AsignarArea(robot3, cuadrado)
+  AsignarArea(robot4, cuadrado)
+  Iniciar(robot1, 10,10)
+  Iniciar(robot2, 10,30)
+  Iniciar(robot3, 30,30)
+  Iniciar(robot4, 30,10)
+fin

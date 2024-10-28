@@ -1,0 +1,30 @@
+programa Ejercicio2
+procesos
+  proceso hacerCuadrado(E lado: numero)
+  comenzar
+    repetir 4
+      repetir lado
+        mover
+      derecha
+  fin
+areas
+  ciudad: AreaC (1,1,100,100)
+robots
+  robot robot1
+  variables
+    lado: numero
+  comenzar
+    lado := 1
+    repetir 5
+      hacerCuadrado(lado)
+      Pos(PosAv + lado, PosCa)
+      lado := lado + 1
+         
+    
+  fin
+variables
+  R_info: robot1
+comenzar
+  AsignarArea(R_info, ciudad)
+  Iniciar(R_info, 1,1)
+fin

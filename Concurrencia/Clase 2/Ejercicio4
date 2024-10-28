@@ -1,0 +1,51 @@
+programa Ejercicio4
+procesos
+  proceso limpiarAreaPapel(E numAv: numero)
+  comenzar
+    repetir 25
+      Pos(numAv, 1)
+      repetir 99
+        mover 
+        mientras (HayPapelEnLaEsquina)
+          tomarPapel
+      numAv:= numAv + 1 
+  fin
+  proceso limpiarAreaFlor(E numAv: numero)
+  comenzar
+    repetir 25
+      Pos(numAv, 1)
+      repetir 99
+        mover 
+        mientras (HayFlorEnLaEsquina)
+          tomarPapel
+      numAv:= numAv + 1 
+  fin
+areas
+  AreaR1: AreaP(1,1,25,100)
+  AreaR2: AreaP(26,1,50,100)
+  AreaR12: AreaP(51,1,75,100)
+  AreaR22: AreaP(76,1,100,100)      
+robots
+  robot robotImpar
+  comenzar
+    limpiarAreaPapel(1)
+    Pos(51,1)
+    limpiarAreaPapel(51)
+  fin
+  robot robotPar
+  comenzar
+    limpiarAreaFlor(26)
+    Pos(76,1)
+    limpiarAreaFlor(76)
+  fin
+variables
+  robot1: robotImpar
+  robot2: robotPar
+comenzar
+  AsignarArea(robot1, AreaR1)
+  AsignarArea(robot1, AreaR12)
+  AsignarArea(robot2, AreaR2)
+  AsignarArea(robot2, AreaR22)
+  Iniciar(robot1, 1,1)
+  Iniciar(robot2, 26,1)
+fin
