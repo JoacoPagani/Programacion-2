@@ -1,0 +1,69 @@
+programa Ejercicio3
+procesos
+  proceso hacerEscalera(ES contador: numero)
+  variables
+    largo, ancho: numero
+    contP: numero
+    contF: numero
+  comenzar
+    ancho:= 1
+    Random(largo,1, 5)
+    repetir 4
+      contP:=0
+      contF:=0
+      repetir largo
+        mover
+      derecha
+      repetir ancho
+        mover
+      repetir 3
+        derecha
+      largo:= largo + 1
+      mientras HayPapelEnLaEsquina
+        tomarPapel
+        contP:= contP + 1
+      repetir contP
+        depositarPapel
+      mientras HayFlorEnLaEsquina
+        tomarFlor
+        contF:= contF + 1
+      repetir contF
+        depositarFlor      
+      si (contF > contP)
+        contador:= contador +1
+  fin
+areas
+  ciudad: AreaC (1,1,100,100)
+robots
+  robot escalador
+  variables
+    contador: numero
+  comenzar
+    contador:= 0
+    hacerEscalera(contador)
+    EnviarMensaje(contador, robot4)
+  fin
+  robot jefe
+  variables
+    contR1, contR2, contR3: numero
+  comenzar
+    RecibirMensaje(contR1, robot1)
+    RecibirMensaje(contR2, robot2)
+    RecibirMensaje(contR3, robot3)
+    Informar(contR1 + contR2 + contR3)
+  fin
+variables
+  robot1 : escalador
+  robot2 : escalador
+  robot3 : escalador
+  robot4 : jefe
+comenzar
+  AsignarArea(robot1, ciudad)
+  AsignarArea(robot2, ciudad)
+  AsignarArea(robot3, ciudad)
+  AsignarArea(robot4, ciudad)
+  Iniciar(robot1, 2,1)
+  Iniciar(robot2, 7,1)
+  Iniciar(robot3, 12,1)
+  Iniciar(robot4, 1,1)
+fin

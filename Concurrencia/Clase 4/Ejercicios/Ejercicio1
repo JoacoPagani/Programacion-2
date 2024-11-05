@@ -1,0 +1,93 @@
+{Bienvenidos al entorno CMRE.
+Lo siguiente es un código de ejemplo que implementa un
+proceso que recibe un número de avenida como parámetro,
+se posiciona en esa avenida y la recorre.}
+
+programa ejemplo
+procesos
+  proceso hacerRectanguloFlor(E altura: numero; E base:numero; ES flores:numero) 
+  variables
+    valor: numero 
+  comenzar
+    flores:=0
+    valor:=1
+    repetir 2
+      repetir altura
+        mientras (HayFlorEnLaEsquina)
+          tomarFlor
+          flores:=flores+1
+        BloquearEsquina(PosAv, PosCa)
+        mover
+        LiberarEsquina(PosAv, PosCa-valor)
+      derecha 
+      repetir base
+        mientras (HayFlorEnLaEsquina)
+          tomarFlor
+          flores:=flores+1
+        BloquearEsquina(PosAv, PosCa)
+        mover
+        LiberarEsquina(PosAv - valor, PosCa)
+      derecha 
+      valor:= - 1
+  fin
+  proceso hacerRectanguloPapel(E altura: numero; E base:numero; ES papeles:numero) 
+  variables
+    valor: numero 
+  comenzar
+    papeles:=0
+    valor:=1
+    repetir 2
+      repetir altura
+        mientras (HayPapelEnLaEsquina)
+          tomarPapel
+          papeles:=papeles+1
+        BloquearEsquina(PosAv, PosCa)
+        mover
+        LiberarEsquina(PosAv, PosCa-valor)
+      derecha 
+      repetir base
+        mientras (HayPapelEnLaEsquina)
+          tomarPapel
+          papeles:=papeles+1
+        BloquearEsquina(PosAv, PosCa)
+        mover
+        LiberarEsquina(PosAv - valor, PosCa)
+      derecha 
+      valor:= - 1
+  fin
+areas
+  ciudad: AreaC (1,1,100,100)
+robots
+  robot florero
+  variables
+    flores: numero
+  comenzar
+    BloquearEsquina(1,1)
+    Pos(1,1)
+    mover
+    LiberarEsquina(1,1)
+    flores:= 0
+    hacerRectanguloFlor(99,99, flores)
+    Informar(flores)
+  fin
+  robot papelero
+  variables
+    papeles: numero
+  comenzar
+    papeles:= 0
+    BloquearEsquina(1,1)
+    Pos(1,1)
+    mover
+    LiberarEsquina(1,1)
+    hacerRectanguloPapel(99,99,papeles)
+    Informar(papeles)
+  fin
+variables
+  robot1: florero
+  robot2: papelero
+comenzar
+  AsignarArea(robot1, ciudad)
+  AsignarArea(robot2, ciudad) 
+  Iniciar(robot1, 49,50)
+  Iniciar(robot2, 50, 49)
+fin

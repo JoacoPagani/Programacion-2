@@ -1,0 +1,46 @@
+programa Ejercicioh
+procesos
+  proceso recorrerCalles(ES cant: numero)
+  comenzar
+    repetir 9 
+      mover
+      mientras HayFlorEnLaEsquina
+        tomarFlor
+        cant:= cant + 1
+  fin
+areas
+  AreaR1: AreaP (1,1,1,10)
+  AreaR2: AreaP (2,11,2,20)
+  AreaR3: AreaP (2,1,2,1)
+robots
+  robot limpiador
+  variables
+    cant: numero
+  comenzar
+    cant:= 0
+    recorrerCalles(cant)
+    EnviarMensaje(cant, robot3)
+  fin
+  robot fiscalizador
+  variables
+    floresR1, floresR2: numero
+  comenzar
+    RecibirMensaje(floresR1, robot1)
+    RecibirMensaje(floresR2, robot2)
+    si (floresR1 > floresR2)
+      Informar("Robot1 ", (floresR1 - floresR2))
+    sino
+      Informar('Robot2 ', floresR2 - floresR1)
+  fin
+variables
+  robot1: limpiador
+  robot2: limpiador
+  robot3: fiscalizador
+comenzar
+  AsignarArea(robot1, AreaR1)
+  AsignarArea(robot2, AreaR2)
+  AsignarArea(robot3, AreaR3)
+  Iniciar(robot1, 1,1)
+  Iniciar(robot2, 2,11)
+  Iniciar(robot3, 2,1)
+fin

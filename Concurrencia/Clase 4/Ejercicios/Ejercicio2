@@ -1,0 +1,114 @@
+programa Ejercicio2
+procesos
+  proceso EsquinaRandomF(ES intentos: numero; ES hayFlor: boolean)
+  variables
+    posAv, posAv2:numero
+    posCa, posCa2:numero
+  comenzar
+    posAv:= PosAv
+    posCa:= PosCa
+    Random(posAv2,1,5)
+    Random(posCa2,1,10)
+    BloquearEsquina(posAv2,posCa2)
+    Pos(posAv2,posCa2)
+    si (HayFlorEnLaEsquina)
+      mientras(HayFlorEnLaEsquina)
+        tomarFlor
+      hayFlor:= V
+    sino
+      intentos:= intentos - 1
+      hayFlor:= F
+    Pos(posAv,posCa)
+    LiberarEsquina(posAv2,posCa2)
+  fin
+  proceso EsquinaRandomP(ES intentos: numero; ES hayPapel: boolean)
+  variables
+    posAv, posAv2:numero
+    posCa, posCa2:numero
+  comenzar
+    posAv:= PosAv
+    posCa:= PosCa
+    Random(posAv2,6,10)
+    Random(posCa2,1,9)
+    BloquearEsquina(posAv2,posCa2)
+    Pos(posAv2,posCa2)
+    si (HayPapelEnLaEsquina)
+      mientras (HayPapelEnLaEsquina)
+        tomarPapel
+      hayPapel:= V
+    sino
+      intentos:= intentos - 1
+      hayPapel:= F
+    Pos(posAv,posCa)
+    LiberarEsquina(posAv2,posCa2)
+  fin
+  proceso depositarElementos(E Av:numero; E Ca: numero)
+  variables
+    posAv,posCa:numero
+  comenzar
+    posAv:= PosAv
+    posCa:= PosCa
+    BloquearEsquina(Av,Ca)
+    Pos(Av,Ca)
+    mientras (HayPapelEnLaBolsa)
+      depositarPapel
+    mientras (HayFlorEnLaBolsa)
+      depositarFlor
+    Pos(posAv,posCa)
+    LiberarEsquina(Av,Ca)
+  fin
+    
+areas
+  areaFloreros: AreaPC (1,1, 5, 10)
+  areaPapeleros: AreaPC (6,1, 10, 9)
+  areaR1: AreaP (6,10, 6, 10)
+  areaR2: AreaP (7,10, 7, 10)
+  areaR3: AreaP (8,10, 8, 10)
+  areaR4: AreaP (9,10, 9, 10)
+  areaFin: AreaPC (10,10,10,10)
+robots
+  robot florero
+  variables
+    intentos: numero
+    hayFlor: boolean
+  comenzar
+    intentos:= 5
+    hayFlor:= F
+    mientras ((intentos > 0) & (~hayFlor))
+      EsquinaRandomF(intentos,hayFlor)
+    depositarElementos(10,10)
+  fin
+  robot papelero
+  variables
+    intentos: numero
+    hayPapel: boolean
+  comenzar
+    intentos:= 3
+    hayPapel:= F
+    mientras ((intentos > 0) & (~hayPapel))
+      EsquinaRandomP(intentos,hayPapel)
+    depositarElementos(10,10)
+  fin
+variables
+  robot1: florero
+  robot2: florero
+  robot3: papelero  
+  robot4: papelero
+comenzar
+  AsignarArea(robot1, areaFloreros)
+  AsignarArea(robot2, areaFloreros) 
+  AsignarArea(robot3, areaPapeleros)
+  AsignarArea(robot4, areaPapeleros)
+  AsignarArea(robot1, areaR1)
+  AsignarArea(robot2, areaR2)
+  AsignarArea(robot3, areaR3)
+  AsignarArea(robot4, areaR4) 
+  AsignarArea(robot1, areaFin)
+  AsignarArea(robot2, areaFin)
+  AsignarArea(robot3, areaFin)
+  AsignarArea(robot4, areaFin)
+  Iniciar(robot1, 6,10)
+  Iniciar(robot2, 7,10)
+  Iniciar(robot3, 8,10)
+  Iniciar(robot4, 9,10)
+fin
