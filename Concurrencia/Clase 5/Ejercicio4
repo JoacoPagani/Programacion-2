@@ -1,0 +1,78 @@
+programa Ejercicio4
+procesos
+  proceso recorrerAvenida(E numAv: numero)
+  variables
+    cont,miCa: numero
+  comenzar
+    cont:= 0
+    repetir 99
+      miCa:= PosCa
+      mientras HayPapelEnLaEsquina
+        tomarPapel
+        cont:= cont + 1
+        si (cont = 5)
+          BloquearEsquina(50,50)
+          Pos(50,50)
+          repetir cont
+            depositarPapel
+          cont:=0
+          Pos(numAv,miCa)
+          LiberarEsquina(50,50)
+      mover
+  fin
+areas
+  compartida: AreaC (50,50,50,50)
+  areaR1: AreaP(5,1,5,100)
+  areaR2: AreaP(10,1,10,100)
+  areaR3: AreaP(11,1,11,1)
+  areaR4: AreaP(12,1,12,1)
+robots
+  robot productor
+  comenzar
+    recorrerAvenida(PosAv)
+  fin
+  robot consumidor
+  variables
+    cant, miAv,miCa, contador, intentos:numero
+  comenzar
+    intentos:= 0
+    contador:= 0
+    miAv:= PosAv
+    miCa:= PosCa
+    mientras (intentos < 8)
+      Random(cant,2,5)
+      BloquearEsquina(50,50)
+      Pos(50,50)
+      mientras ((HayPapelEnLaEsquina) & (contador < 5)) 
+        tomarPapel
+        contador:=contador + 1
+      si (contador < 5)
+        repetir contador
+          depositarPapel
+        intentos:= intentos + 1
+      sino
+        intentos:=0
+      Pos(miAv,miCa)
+      LiberarEsquina(50,50)
+      contador:=0
+  fin
+          
+variables
+  robot1: productor
+  robot2: productor 
+  robot3: consumidor
+  robot4: consumidor
+comenzar
+  AsignarArea(robot1,compartida)
+  AsignarArea(robot2,compartida)
+  AsignarArea(robot3,compartida)
+  AsignarArea(robot4,compartida)
+  AsignarArea(robot1,areaR1)
+  AsignarArea(robot2,areaR2)
+  AsignarArea(robot3,areaR3)
+  AsignarArea(robot4,areaR4)
+  Iniciar(robot1, 5,1)
+  Iniciar(robot2, 10,1)
+  Iniciar(robot3, 11,1)
+  Iniciar(robot4, 12,1)
+fin

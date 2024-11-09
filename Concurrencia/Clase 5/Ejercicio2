@@ -1,0 +1,152 @@
+programa Ejercicio2
+procesos
+  proceso recorrerCalle(E numCa: numero;ES contF:numero; ES contP: numero)
+  comenzar
+    BloquearEsquina(1, numCa)
+    Pos(1, numCa)
+    derecha
+    repetir 99
+      mientras HayFlorEnLaEsquina
+        tomarFlor
+        contF:= contF + 1
+      mientras HayPapelEnLaEsquina
+        tomarPapel 
+        contP:= contP + 1
+      BloquearEsquina(PosAv + 1, numCa)
+      mover
+      LiberarEsquina(PosAv-1,numCa)
+    LiberarEsquina(100,numCa)
+  fin
+  
+  proceso depositarEsquina(E numAv:numero; E numCa:numero)
+  comenzar
+    BloquearEsquina(numAv,numCa)
+    Pos(numAv, numCa)
+    mientras HayFlorEnLaBolsa
+      depositarFlor
+    mientras HayPapelEnLaBolsa
+      depositarPapel
+  fin
+   
+  proceso depositarCalle(E numCa:numero)
+  comenzar
+    BloquearEsquina(1,numCa)
+    Pos(1,numCa)
+    mientras (HayFlorEnLaBolsa | HayPapelEnLaBolsa)
+      si HayFlorEnLaBolsa
+        depositarFlor
+      sino
+        depositarPapel
+      BloquearEsquina(PosAv + 1, numCa)
+      mover
+      LiberarEsquina(PosAv - 1, numCa)
+  fin
+  
+  proceso maximo(ES max:numero;ES maxR: numero;E auxMax: numero;E auxR: numero)
+  comenzar
+    si (auxMax > max)
+      max:= auxMax
+      maxR:= auxR 
+  fin
+areas
+  rectangulo: AreaPC (1,60,100,80)
+  areaR1: AreaP (2,2,2,2)
+  areaR2: AreaP (3,3,3,3)
+  areaR3: AreaP (4,4,4,4)
+  areaJF: AreaP (1,1,1,1)
+  areaGanador: AreaPC(1,50,100,50)
+  areaPerdedor: AreaPC(100,100,100,100)
+robots
+  robot ejecutor
+  variables
+    Ca, id, contF, contP,maxRF,maxRP,miAv,miCa: numero
+  comenzar
+    miAv:= PosAv
+    miCa:= PosCa
+    contF:= 0
+    contP:= 0
+    RecibirMensaje(id, robotJefe)
+    RecibirMensaje(Ca, robotJefe)
+    recorrerCalle(Ca, contF,contP)
+    Pos(miAv,miCa)
+    EnviarMensaje(id, robotJefe)
+    EnviarMensaje(contF,robotJefe)
+    EnviarMensaje(contP,robotJefe)
+    RecibirMensaje(maxRF,robotJefe)
+    RecibirMensaje(maxRP,robotJefe)
+    si ((maxRF = id) | (maxRP = id))
+      depositarCalle(50)  
+      Pos(miAv,miCa)
+      LiberarEsquina(100,50)
+    sino
+      si ((HayFlorEnLaBolsa) | (HayPapelEnLaBolsa))
+        depositarEsquina(100,100)
+        Pos(miAv,miCa)
+        LiberarEsquina(100,100)
+    
+  fin
+  robot jefe
+  variables
+    numCa, aux, maxF, maxP, maxRF, maxRP,contF,contP:numero
+  comenzar
+    maxF:= 0
+    maxP:= 0
+    maxRF:=0
+    maxRP:=0 
+    EnviarMensaje(1,robot1)
+    EnviarMensaje(2,robot2)
+    EnviarMensaje(3,robot3)
+    Random(numCa,60,80)
+    EnviarMensaje(numCa,robot1)
+    Random(numCa,60,80)
+    EnviarMensaje(numCa,robot2)
+    Random(numCa,60,80)
+    EnviarMensaje(numCa,robot3)
+    repetir 3
+      RecibirMensaje(aux,*)
+      si aux = 1
+        RecibirMensaje(contF, robot1)
+        maximo(maxF, maxRF,contF,aux)
+        RecibirMensaje(contP,robot1)
+        maximo(maxP,maxRP,contP,aux)
+      si aux = 2
+        RecibirMensaje(contF, robot2)
+        maximo(maxF, maxRF,contF,aux)
+        RecibirMensaje(contP,robot2)
+        maximo(maxP,maxRP,contP,aux)
+      si aux = 3
+        RecibirMensaje(contF, robot3)
+        maximo(maxF, maxRF,contF,aux)
+        RecibirMensaje(contP,robot3)
+        maximo(maxP,maxRP,contP,aux)
+    EnviarMensaje(maxRF,robot1)
+    EnviarMensaje(maxRF,robot2)
+    EnviarMensaje(maxRF,robot3)
+    EnviarMensaje(maxRP,robot1)
+    EnviarMensaje(maxRP,robot2)
+    EnviarMensaje(maxRP,robot3)
+  fin
+variables
+  robot1: ejecutor
+  robot2: ejecutor
+  robot3: ejecutor
+  robotJefe: jefe
+comenzar
+  AsignarArea(robot1,rectangulo)
+  AsignarArea(robot2,rectangulo)
+  AsignarArea(robot3,rectangulo)
+  AsignarArea(robot1,areaR1)
+  AsignarArea(robot2,areaR2)
+  AsignarArea(robot3,areaR3)
+  AsignarArea(robot1,areaGanador)
+  AsignarArea(robot2,areaGanador)
+  AsignarArea(robot3,areaGanador)
+  AsignarArea(robot1,areaPerdedor)
+  AsignarArea(robot2,areaPerdedor)
+  AsignarArea(robot3,areaPerdedor)
+  AsignarArea(robotJefe,areaJF)
+  Iniciar(robot1, 2,2)
+  Iniciar(robot2, 3,3)
+  Iniciar(robot3, 4,4)
+  Iniciar(robotJefe,1,1)
+fin
